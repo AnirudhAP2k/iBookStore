@@ -7,12 +7,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(express.json());
-// app.use(cors());
-// app.use(cors({
-//     origin: 'http://localhost:5555',
-//     methods: ["PUT", "POST", "GET", "DELETE"],
-//     allowedHeaders: ["Content-Type"]
-// }));
+app.use(cors());
 
 app.use('/api/book', router)
 
