@@ -4,7 +4,7 @@ import { BsArrowLeft } from 'react-icons/bs'
 
 const Backbutton = () => {
   return (
-    <div className='flex mx-4 my-4'>
+    <div className='flex mx-4'>
       <Link className='bg-sky-800 text-white px-4 pu-1 rounded-lg w-fit' to={'/'}>
         <BsArrowLeft className='text-2xl'/>
       </Link>
