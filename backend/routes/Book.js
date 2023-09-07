@@ -47,8 +47,16 @@ router.get('/getallbooks', async (req, res) => {
 });
 
 //Route 3 : Update book attributes
-router.put('/updatebook/:id', async (req,res) => {
+router.put('/updatebook/:id',[
+    body("title", "Enter a valid title").isLength({min: 1}),
+    body("author", "Enter a valid author").isLength({min: 1}),
+    body("publishedAt", "Enter a valid year").custom(isValidYear)
+    ], async (req, res)=>{
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ error: errors.errors[0].msg})
+        }
         if(
             !req.body.title &&
             !req.body.author &&
